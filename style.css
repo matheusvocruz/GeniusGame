@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+    background-color: #555555;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    resize: vertical;
+    overflow: auto;
+    
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.box{
+    position: relative;
+    display: inline-block;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 10px;
+}
