@@ -12,19 +12,23 @@ body{
     justify-content: center;
     resize: vertical;
     overflow: auto;
-    
+    height: 100vh;
+    align-items: center;
+    font-size: 5rem;
 }
 
-.parent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.arrow-icon{
+    font-size: 5rem;
+    margin-top: 3.5rem;
+    color:aliceblue;
+    align-self: center;
+}
 
 .box{
-    position: relative;
     display: inline-block;
+    overflow: hidden;
     width: 12rem;
     height: 12rem;
     border-radius: 10px;
+    box-shadow: 3px 5px 10px #000;
 }
