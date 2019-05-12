@@ -33,3 +33,19 @@ body{
     border-radius: 10px;
     box-shadow: 3px 5px 10px #000;
 }
+
+.bg-success-lighter{
+    background-color:  #ccffcc!important;  
+}
+
+.bg-warning-lighter{
+    background-color: #ffff00 !important;
+}
+
+.bg-danger-lighter{
+    background-color: #f20056 !important;
+}
+
+.bg-primary-lighter{
+    background-color: #66ccff !important;
+}
