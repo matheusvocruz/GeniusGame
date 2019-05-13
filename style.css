@@ -35,17 +35,17 @@ body{
 }
 
 .bg-success-lighter{
-    background-color:  #ccffcc!important;  
+    background-color:  lightgreen!important;  
 }
 
 .bg-warning-lighter{
-    background-color: #ffff00 !important;
+    background-color: lightyellow !important;
 }
 
 .bg-danger-lighter{
-    background-color: #f20056 !important;
+    background-color: lightcoral !important;
 }
 
 .bg-primary-lighter{
-    background-color: #66ccff !important;
+    background-color: lightblue !important;
 }
