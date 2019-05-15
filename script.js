@@ -1,5 +1,9 @@
 var sequence = new Array();
 
+var boxes = document.getElementsByClassName('box');
+
+var indexer = 0;
+
 const SetarDelay = function (objeto) {
     setTimeout(function(){
         objeto.attr('class', objeto.attr('class').split('-lighter',2)[0]);
@@ -12,6 +16,26 @@ const getRandom = function(){
 
 const resetSequence = function(){
     sequence = new Array();
+}
+
+const validadeSequenceEntry = function(entry){
+    return (sequence[indexer] === entry)? true : false;
+}
+
+const shineBox = function (boxNumber){
+    var ClasseAnterior = boxes[boxNumber].className;
+    boxes[boxNumber].className += '-lighter';
+    setTimeout(function (x, classe) {
+        boxes[x].className = classe;
+    }, 200, boxNumber, ClasseAnterior);
+}
+
+function startSequence(){
+    sequence.forEach(element => {
+        setTimeout(function(){
+            shineBox(element)
+        },200);
+    });
 }
 
 $('.box').click( function(){
