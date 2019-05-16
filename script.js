@@ -1,6 +1,6 @@
 var sequence = new Array();
 
-var boxes = document.getElementsByClassName('box');
+var boxes = $('.box');
 
 var indexer = 0;
 
@@ -22,19 +22,16 @@ const validadeSequenceEntry = function(entry){
     return (sequence[indexer] === entry)? true : false;
 }
 
-const shineBox = function (boxNumber){
+function shineBox(boxNumber){
     var ClasseAnterior = boxes[boxNumber].className;
     boxes[boxNumber].className += '-lighter';
-    setTimeout(function (x, classe) {
-        boxes[x].className = classe;
-    }, 200, boxNumber, ClasseAnterior);
+    setTimeout(function () { boxes[boxNumber].className =ClasseAnterior; }, 200);
 }
 
 function startSequence(){
     sequence.forEach(element => {
-        setTimeout(function(){
-            shineBox(element)
-        },200);
+        //shineBox(element);
+        setTimeout(shineBox, 200, element);
     });
 }
 
