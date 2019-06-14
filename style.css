@@ -4,6 +4,7 @@
 body{
     overflow: hidden;
     background-color: #555555;
+    box-shadow: 0 0 10rem 2rem #000 inset
 }
 
 #root{
@@ -15,7 +16,6 @@ body{
     height: 100vh;
     align-items: center;
     font-size: 5rem;
-    box-shadow: 0 0 10rem 2rem #000 inset
 }
 
 .arrow-icon{
@@ -48,4 +48,13 @@ body{
 
 .bg-primary-lighter{
     background-color: lightblue !important;
+}
+
+#play{
+    color: #fff;
+    background-color: #333333;
+    border-radius: 100%;
+    padding: 10px;
+    position: absolute;
+    margin-top: -1.5rem;
 }

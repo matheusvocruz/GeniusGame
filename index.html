@@ -10,20 +10,23 @@
 </head>
 <body>
     <div class="container-fluid">
+        
         <div id="root" class="text-center">
+           
            <div class="flex-row">
-                <div class="box bg-success">
+                <div class="box bg-success" id="green" data-enabled="disabled" data-key="38">
                     <i class="fas fa-arrow-up arrow-icon"></i>
                 </div>
-                <div class="box bg-warning">
+                <div class="box bg-warning" id="yellow" data-enabled="disabled" data-key="39">
                     <i class="fas fa-arrow-right arrow-icon"></i>
                 </div>
             </div>
+            <button id="play" class="btn"><i class="fas fa-play-circle fa-5x"></i></button>
             <div class="flex-row">
-                <div class="box bg-primary">
+                <div class="box bg-primary" id="blue" data-enabled="disabled" data-key="40">
                     <i class="fas fa-arrow-left arrow-icon"></i>
                 </div> 
-                <div class="box bg-danger">
+                <div class="box bg-danger" id="red" data-enabled="disabled" data-key="37">
                     <i class="fas fa-arrow-down arrow-icon"></i>
                 </div> 
             </div>
