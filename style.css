@@ -62,11 +62,16 @@ body{
 #reset{
     background-color: transparent;
     color: #fff;
-    position: absolute;
-    margin-left: -2.8rem;
-    margin-top: 4rem;
+}
+#score{
+    background-color: #333333;
+    box-shadow: 3px 5px 10px #000 inset;
 }
 
+footer{
+    position: fixed;
+    margin-top: -6rem;
+}
 /* .progress-bar-vertical {
     width: 20px;
     min-height: 100px;

@@ -40,6 +40,10 @@ const ShineBox = async function(e){
     box.setAttribute('data-enabled','enabled');
 }
 
+const refreshScore = function (){
+    document.querySelector('#score').innerHTML = sequence.length;
+}
+
 //################### Sequence ###################//
 const getRandom = function(){
     sequence.push(Math.floor(Math.random()*4));
@@ -47,24 +51,42 @@ const getRandom = function(){
 
 const resetSequence = function(){
     sequence = new Array();
-    document.querySelector('#reset').setAttribute('hidden',true);
+    indexer = 0;
+    rodada = 0;
+    disableBoxes();
+    buttonPlay.removeAttribute('hidden');
+    buttonReset.setAttribute('hidden',true);
+    buttonReset.setAttribute('disabled',true);
 }
 
-const validadeSequenceEntry = function(entry){
-    return (sequence[indexer] === entry)? true : false;
+var validadeSequenceEntry = async function(entry){
+    
+    var validation = (sequence[indexer] === entry) ? true : false;
+    indexer++;
+    if(indexer == sequence.length && validation === true){
+       indexer = 0;
+       rodada++;
+       refreshScore();
+       await wait(500);
+       getRandom();
+       startSequence(); 
+    }
+    return validation;
 }
 
 const startSequence = async function(){
     onPlay = true;
     disableBoxes();
+    buttonPlay.setAttribute('hidden', true);
     if(sequence.length === 0){
         for(var i = 0; i < 4 ; i++)
             getRandom();
     }
-    buttonReset.removeAttribute('hidden');
     for(var i = 0; i < sequence.length ; i++){
         await ShineBox(sequence[i])
     }
+    buttonReset.removeAttribute('hidden');
+    buttonReset.removeAttribute('disabled');
     onPlay = false;
     enableBoxes();
 }
@@ -74,6 +96,11 @@ const Listener = async function(e){
     if(e.getAttribute('data-enabled') === 'enabled'  && onPlay === false){
         var element = arrayColors.indexOf(e.id);
         await ShineBox(element);
+        if(await validadeSequenceEntry(element) === false){
+            resetSequence();
+            refreshScore();
+            buttonPlay.removeAttribute('hidden');
+        }
     }
 }
 
@@ -99,10 +126,10 @@ document.addEventListener('keydown', async function(e){
     switch(e.keyCode){
         case 38: Listener(boxes[0]);break;
         case 39: Listener(boxes[1]);break;
-        case 40: Listener(boxes[3]);break;
         case 37: Listener(boxes[2]);break;
+        case 40: Listener(boxes[3]);break;
         case 32: 
-            if(onPlay === false)
+            if(onPlay === false && sequence.length === 0)
             {
                 startSequence(); 
             }
