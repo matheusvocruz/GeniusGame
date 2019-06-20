@@ -1,2 +1,2 @@
 # GeniusGame
-Genius game in a SPA using React or Vue
+Genius game in a SPA using only Vanilla Javascript
